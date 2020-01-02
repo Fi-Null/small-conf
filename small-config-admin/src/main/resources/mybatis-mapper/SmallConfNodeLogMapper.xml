@@ -13,13 +13,13 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-		t.`env`,
-		t.`key`,
-		t.`title`,
-		t.`value`,
-		t.`addtime`,
-		t.`optuser`
-	</sql>
+        t.`env`,
+        t.`key`,
+        t.`title`,
+        t.`value`,
+        t.`addtime`,
+        t.`optuser`
+    </sql>
 
     <select id="findByKey" parameterType="java.util.Map" resultMap="smallConfNodeLog">
         SELECT
@@ -30,37 +30,37 @@
     </select>
 
     <insert id="add" parameterType="com.small.config.admin.domain.SmallConfNodeLog">
-		INSERT INTO small_conf_node_log(
-			`env`,
-			`key`,
-			`title`,
-			`value`,
-			`addtime`,
-			`optuser`
-		)
-		VALUES(
-			#{env},
-			#{key},
-			#{title},
-			#{value},
-			NOW(),
-			#{optuser}
-		)
-	</insert>
+        INSERT INTO small_conf_node_log(
+        `env`,
+        `key`,
+        `title`,
+        `value`,
+        `addtime`,
+        `optuser`
+        )
+        VALUES(
+        #{env},
+        #{key},
+        #{title},
+        #{value},
+        NOW(),
+        #{optuser}
+        )
+    </insert>
 
     <delete id="deleteTimeout" parameterType="java.util.Map">
-		DELETE FROM small_conf_node_log
-		WHERE `env` = #{env}
-			AND `key` = #{key}
-			AND addtime NOT IN (
-				SELECT addtime FROM(
-					SELECT addtime FROM small_conf_node_log
-					WHERE `env` = #{env}
-						AND `key` = #{key}
-					ORDER BY addtime DESC LIMIT #{length}
-				) t1
-			)
-	</delete>
+        DELETE FROM small_conf_node_log
+        WHERE `env` = #{env}
+        AND `key` = #{key}
+        AND addtime NOT IN (
+        SELECT addtime FROM(
+        SELECT addtime FROM small_conf_node_log
+        WHERE `env` = #{env}
+        AND `key` = #{key}
+        ORDER BY addtime DESC LIMIT #{length}
+        ) t1
+        )
+    </delete>
 
 
 </mapper>

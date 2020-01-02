@@ -15,13 +15,13 @@ import java.util.List;
  */
 @Mapper
 public interface SmallConfNodeLogDao {
-    
+
     List<SmallConfNodeLog> findByKey(@Param("env") String env, @Param("key") String key);
 
     void add(SmallConfNodeLog smallConfNode);
 
     int deleteTimeout(@Param("env") String env,
-                             @Param("key") String key,
-                             @Param("length") int length);
+                      @Param("key") String key,
+                      @Param("length") int length);
 
 }

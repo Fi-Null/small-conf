@@ -21,7 +21,7 @@ public class SmallConfListenerFactory {
     private static Logger logger = LoggerFactory.getLogger(SmallConfListenerFactory.class);
 
     /**
-     * xxl conf listener repository
+     * small conf listener repository
      */
     private static ConcurrentHashMap<String, List<SmallConfListener>> keyListenerRepository = new ConcurrentHashMap<>();
     private static List<SmallConfListener> noKeyConfListener = Collections.synchronizedList(new ArrayList<SmallConfListener>());
@@ -63,7 +63,7 @@ public class SmallConfListenerFactory {
     }
 
     /**
-     * invoke listener on xxl conf change
+     * invoke listener on small conf change
      *
      * @param key
      */

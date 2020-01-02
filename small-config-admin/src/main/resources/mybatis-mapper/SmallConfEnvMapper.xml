@@ -10,10 +10,10 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-		t.`env`,
-		t.`title`,
-		t.`order`
-	</sql>
+        t.`env`,
+        t.`title`,
+        t.`order`
+    </sql>
 
     <select id="findAll" parameterType="java.util.Map" resultMap="smallConfEnv">
         SELECT
@@ -23,21 +23,21 @@
     </select>
 
     <insert id="save" parameterType="com.small.config.admin.domain.SmallConfEnv">
-		INSERT INTO small_conf_env(env, title, `order`)
-		VALUES(#{env}, #{title}, #{order})
-	</insert>
+        INSERT INTO small_conf_env(env, title, `order`)
+        VALUES(#{env}, #{title}, #{order})
+    </insert>
 
     <update id="update" parameterType="com.small.config.admin.domain.SmallConfEnv">
-		UPDATE small_conf_env
-		SET title = #{title},
-			`order` = #{order}
-		WHERE env = #{env}
-	</update>
+        UPDATE small_conf_env
+        SET title = #{title},
+        `order` = #{order}
+        WHERE env = #{env}
+    </update>
 
     <delete id="delete" parameterType="java.lang.String">
-		DELETE FROM small_conf_env
-		WHERE env = #{env}
-	</delete>
+        DELETE FROM small_conf_env
+        WHERE env = #{env}
+    </delete>
 
     <select id="load" parameterType="java.lang.String" resultMap="smallConfEnv">
         SELECT

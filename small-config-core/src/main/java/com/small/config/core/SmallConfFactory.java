@@ -62,7 +62,7 @@ public class SmallConfFactory extends InstantiationAwareBeanPostProcessorAdapter
     @Override
     public boolean postProcessAfterInstantiation(final Object bean, final String beanName) throws BeansException {
 
-        // 1、Annotation('@XxlConf')：resolves conf + watch
+        // 1、Annotation('@SmallConf')：resolves conf + watch
         if (!beanName.equals(this.beanName)) {
             ReflectionUtils.doWithFields(bean.getClass(), field -> {
                 if (field.isAnnotationPresent(SmallConf.class)) {

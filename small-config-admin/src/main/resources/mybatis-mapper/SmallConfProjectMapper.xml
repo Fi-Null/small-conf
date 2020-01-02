@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.small.config.admin.dao.SmallConfProjectDao">
+
+    <resultMap id="smallConfProject" type="com.small.config.admin.domain.SmallConfProject">
+        <result column="appname" property="appname" jdbcType="VARCHAR"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        t.`appname`,
+        t.`title`
+    </sql>
+
+    <select id="findAll" parameterType="java.util.Map" resultMap="smallConfProject">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM small_conf_project AS t
+        ORDER BY t.appname
+    </select>
+
+    <insert id="save" parameterType="com.small.config.admin.domain.SmallConfProject">
+        INSERT INTO small_conf_project(appname, title)
+        VALUES(#{appname}, #{title})
+    </insert>
+
+    <update id="update" parameterType="com.small.config.admin.domain.SmallConfProject">
+        UPDATE small_conf_project
+        SET title = #{title}
+        WHERE appname = #{appname}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.String">
+        DELETE FROM small_conf_project
+        WHERE appname = #{appname}
+    </delete>
+
+    <select id="load" parameterType="java.lang.String" resultMap="smallConfProject">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM small_conf_project AS t
+        WHERE appname = #{appname}
+    </select>
+
+</mapper>

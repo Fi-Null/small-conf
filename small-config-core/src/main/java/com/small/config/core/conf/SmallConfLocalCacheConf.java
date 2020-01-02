@@ -73,7 +73,7 @@ public class SmallConfLocalCacheConf {
         refreshThread.setDaemon(true);
         refreshThread.start();
 
-        logger.info(">>>>>>>>>> small-conf, XxlConfLocalCacheConf init success.");
+        logger.info(">>>>>>>>>> small-conf, SmallConfLocalCacheConf init success.");
     }
 
     public static void destroy() {

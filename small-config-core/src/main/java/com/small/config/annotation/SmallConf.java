@@ -21,7 +21,7 @@ public @interface SmallConf {
     String defaultValue() default "";
 
     /**
-     *  whether you need a callback refresh, when the value changes.
+     * whether you need a callback refresh, when the value changes.
      *
      * @return
      */
